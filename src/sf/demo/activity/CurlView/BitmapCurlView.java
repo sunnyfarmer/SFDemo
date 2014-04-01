@@ -55,32 +55,29 @@ public class BitmapCurlView extends Activity {
 		}
 
 		private Bitmap loadBitmap(int width, int height, int index) {
-			char c = (char) ('a' + index);
-			String content = String.format("QQQQQQQQQQQQQQQQQQQQQQQQQ%s", c);
 
-			Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-			bitmap.eraseColor(0xFFFFFFFF);
+			Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
+			bitmap.eraseColor(0xFF00FFFF);
 			Canvas canvas = new Canvas(bitmap);
 
 			Paint p = new Paint();
-			p.setColor(0xFFC0C0C0);
-//			p.setColor(0x00FF0000);
-			p.setTextSize(20.0f);
+			p.setColor(0xFF000000);
+			p.setTextSize(200.0f);
 
-			canvas.drawText(content, 0, 0, p);
-
+			canvas.drawText(Integer.valueOf(index).toString(), 400, 400, p);
+			canvas.drawRect(10, 10, 300, 300, p);
+			
 			return bitmap;
 		}
 		
 		@Override
 		public void updatePage(CurlPage page, int width, int height, int index) {
-Log.i(TAG, "width: " + width + ", height: " + height + ", index: " + index);
 //			Bitmap front = this.loadBitmap(width, height, index-1);
 			Bitmap cur = this.loadBitmap(width, height, index);
-//			Bitmap next = this.loadBitmap(width, height, index+1);
-			
-			page.setTexture(cur, CurlPage.SIDE_BOTH);
+			Bitmap next = this.loadBitmap(width, height, index+1);
+			page.setTexture(cur, CurlPage.SIDE_FRONT);
+			page.setTexture(next, CurlPage.SIDE_BACK);
 		}
-		
+
 	}
 }
