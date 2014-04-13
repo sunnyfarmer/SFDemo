@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sf.demo.activity.CurlView.BitmapCurlView;
+import sf.demo.activity.CurlView.SFCurlViewActivity;
 import sf.demo.activity.FlipView.ButtonFlipView;
 import sf.demo.activity.FlipView.TextViewFlipView;
 import sf.demo.model.ListNode;
@@ -54,6 +55,8 @@ public class MainActivity extends Activity {
 		//CurlView
 		tmpArray = new ArrayList<ListNode>();
 		childListNode = ListNode.ListNodeFactory.produceListNode("BitmapCurlView", BitmapCurlView.class);
+		tmpArray.add(childListNode);
+		childListNode = ListNode.ListNodeFactory.produceListNode("SFCurlView", SFCurlViewActivity.class);
 		tmpArray.add(childListNode);
 		parentListNode = ListNodeFactory.produceListNode("CurlView", tmpArray);
 		listNodeArray.add(parentListNode);

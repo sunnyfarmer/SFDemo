@@ -25,6 +25,7 @@
         <activity android:name=".activity.FlipView.TextViewFlipView"></activity>
         <activity android:name=".activity.FlipView.ButtonFlipView"></activity>
         <activity android:name=".activity.CurlView.BitmapCurlView"></activity>
+        <activity android:name=".activity.CurlView.SFCurlViewActivity"></activity>
     </application>
 
 </manifest>

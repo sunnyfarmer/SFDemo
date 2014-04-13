@@ -74,9 +74,9 @@ public class BitmapCurlView extends Activity {
 		public void updatePage(CurlPage page, int width, int height, int index) {
 //			Bitmap front = this.loadBitmap(width, height, index-1);
 			Bitmap cur = this.loadBitmap(width, height, index);
-			Bitmap next = this.loadBitmap(width, height, index+1);
+//			Bitmap next = this.loadBitmap(width, height, index+1);
 			page.setTexture(cur, CurlPage.SIDE_FRONT);
-			page.setTexture(next, CurlPage.SIDE_BACK);
+//			page.setTexture(next, CurlPage.SIDE_BACK);
 		}
 
 	}
